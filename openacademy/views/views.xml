@@ -2,18 +2,64 @@
   <data>
     <!-- explicit list view definition -->
 <!--
-    <record model="ir.ui.view" id="openacademy.list">
-      <field name="name">openacademy list</field>
-      <field name="model">openacademy.openacademy</field>
-      <field name="arch" type="xml">
-        <tree>
-          <field name="name"/>
-          <field name="value"/>
-          <field name="value2"/>
-        </tree>
-      </field>
+    <record model="ir.ui.view" id="course_form_view">
+        <field name="name">course.form</field>
+        <field name="model">openacademy.course</field>
+        <field name="priority" eval="16"/>
+        <field name="arch" type="xml">
+             view content: <form>, <tree>, <graph>, ... 
+        </field>
     </record>
 -->
+
+    <record model="ir.ui.view" id="course_form_view">
+        <field name="name">course.form</field>
+        <field name="model">openacademy.course</field>
+        <field name="priority" eval="16"/>
+        <field name="arch" type="xml">
+
+            <form string="Course form">
+                <sheet>
+                    <group colspan="2" col="2">
+                        <separator string="General stuff" colspan="2"/>
+                        <field name="name"/>
+                    </group>
+                </sheet>
+                <notebook>
+                    <page string="Description">
+                        <field name="description"/>
+                    </page>
+                    <page string="About">
+                        This is example of notebook
+                    </page>
+
+                </notebook>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="course_list_view">
+        <field name="name">course.list</field>
+        <field name="model">openacademy.course</field>
+        <field name="priority" eval="16"/>
+        <field name="arch" type="xml">
+            <tree string="Course tree">
+                <field name="name" string="Name tree"/>
+                <field name="description"/>
+            </tree>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="course_search_view">
+        <field name="name">course.search</field>
+        <field name="model">openacademy.course</field>
+        <field name="priority" eval="16"/>
+        <field name="arch" type="xml">
+            <search string="Course search">
+                <field name="name" string="Name search"/>
+                <field name="description"/>
+            </search>
+        </field>
+    </record>
 
     <!-- actions opening views on models -->
 <!--
