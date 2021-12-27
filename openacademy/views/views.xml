@@ -11,7 +11,7 @@
         </field>
     </record>
 -->
-
+    <!-- ################# COURSE ######################-->
     <record model="ir.ui.view" id="course_form_view">
         <field name="name">course.form</field>
         <field name="model">openacademy.course</field>
@@ -21,8 +21,9 @@
             <form string="Course form">
                 <sheet>
                     <group colspan="2" col="2">
-                        <separator string="General stuff" colspan="2"/>
+                        <separator string="General" colspan="2"/>
                         <field name="name"/>
+                        <field name="responsible_id"/>
                     </group>
                 </sheet>
                 <notebook>
@@ -46,6 +47,7 @@
             <tree string="Course tree">
                 <field name="name" string="Name tree"/>
                 <field name="description"/>
+                <field name="responsible_id"/>
             </tree>
         </field>
     </record>
@@ -60,6 +62,73 @@
             </search>
         </field>
     </record>
+
+
+
+
+
+
+    <!-- ################# SESSION ######################-->
+    <record model="ir.ui.view" id="session_form_view">
+        <field name="name">session.form</field>
+        <field name="model">openacademy.session</field>
+        <field name="priority" eval="16"/>
+        <field name="arch" type="xml">
+            <form string="Session Form">
+                <sheet>
+                    <group>
+                        <group string="General">
+                            <field name="course_id"/>
+                            <field name="name"/>
+                            <field name="instructor_id"/>
+                        </group>
+                        <group string="Schedule">
+                            <field name="start_date"/>
+                            <field name="duration"/>
+                            <field name="seats"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="session_tree_view">
+        <field name="name">session.tree</field>
+        <field name="model">openacademy.session</field>
+        <field name="arch" type="xml">
+            <tree string="Session Tree">
+                <field name="name"/>
+                <field name="course_id"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <!--
+
+    <record model="ir.ui.view" id="session_list_view">
+        <field name="name">session.list</field>
+        <field name="model">openacademy.session</field>
+        <field name="priority" eval="16"/>
+        <field name="arch" type="xml">
+            <tree string="session tree">
+                <field name="name" string="Name tree"/>
+                <field name="description"/>
+            </tree>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="session_search_view">
+        <field name="name">session.search</field>
+        <field name="model">openacademy.session</field>
+        <field name="priority" eval="16"/>
+        <field name="arch" type="xml">
+            <search string="session search">
+                <field name="name" string="Name search"/>
+                <field name="description"/>
+            </search>
+        </field>
+    </record>
+    -->
 
     <!-- actions opening views on models -->
 <!--
