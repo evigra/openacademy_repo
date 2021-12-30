@@ -76,6 +76,21 @@
         <field name="arch" type="xml">
             <form string="Session Form">
                 <sheet>
+                    <group string="General">
+                        <field name="name"/>
+                        <field name="start_date"/>
+                        <field name="datetime_test"/>
+                        
+                        <field name="duration"/>
+                        <field name="seats"/>
+                        <field name="instructor_id"/>                        
+                        <field name="course_id"/>
+                        <field name="taken_seats"/>
+                        <field name="attendee_ids"/>        
+                        <field name="active"/>
+                    
+                    </group>
+                    <!--
                     <group>
                         <group string="General">
                             <field name="course_id"/>
@@ -88,6 +103,7 @@
                             <field name="seats"/>
                         </group>
                     </group>
+                    -->
                 </sheet>
             </form>
         </field>
@@ -98,7 +114,14 @@
         <field name="arch" type="xml">
             <tree string="Session Tree">
                 <field name="name"/>
+                <field name="start_date"/>
+                <field name="duration"/>
+                <field name="seats"/>
+                <field name="instructor_id"/>                        
                 <field name="course_id"/>
+                <field name="taken_seats" widget="progressbar"/>
+                
+              
             </tree>
         </field>
     </record>
